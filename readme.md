@@ -1,6 +1,20 @@
 # doctor-lookup
 
-## An app to find a doctor in Portland, OR (using BetterDoctor API) based on either a medical issue or doctor's name
+## Description
+### An app to find a doctor in Portland, OR (using BetterDoctor API) based on either a medical issue or doctor's name.
+
+## Business Specifications
+| Spec | Input | Output | Status |
+| :---------------| :---------------| :---------------|
+| User inputs a medical issue and receive a list of doctors in the Portland, OR area. | "rash"| Susan Koch |
+
+## Technologies Used
+
+```
+Application: JavaScript, jQuery, Bootstrap, HTML
+Testing: Jasmine, Karma
+Environment: npm, webpack, babel, esLint
+```
 
 
 ## MIT license

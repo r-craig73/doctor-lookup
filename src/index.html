@@ -4,8 +4,32 @@
     <title>Doctor Lookup</title>
   </head>
   <body>
-    <div class='container'>
+    <div class=jumbotron>
       <h1>Doctor Lookup</h1>
+    </div>
+
+    <div class="container">
+      <h2>Search for a doctor in the Portland, OR area by your medical condition or the doctor's name.</h2>
+
+      <div class="condition">
+        <label for="condition">Medical condition</label>
+        <input id="condition" name="condition" type="text" placeholder="allergy, rash, cold, etc." size="100">
+        <button class="condition-button" id="condition">Find Doctor by condition</button>
+      </div>
+      <br>
+
+      <div class="doctor-name">
+        <label for="doctor-name">Doctor</label>
+        <input id="doctor-name" name="doctor-name" type="text"  name="" placeholder="Doctor's name" size="100">
+        <button class="doctor-name-button" id="doctor-name">Find Doctor by Name</button>
+      </div>
+      <br>
+
+      <div class="start-over">
+        <button class="start-over-button" id="start-over">Start Over</button>
+      </div>
+      <br>
+
     </div>
   </body>
 </html>

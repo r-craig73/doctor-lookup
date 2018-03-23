@@ -51,9 +51,9 @@
 - [ ] Spec 5: If there are no doctors available after the query response, the app returns a message stating no doctors meet the criteria (not an API error). input ("Dr. Seuss" or "cowbell fever"), output ("There are no doctors matching that name" or "There are doctors available to help with your medical issue").
 
 3. Integration
-- [ ] Generate html template page with two form options, medical issue and doctor's name.
-- [ ] Read through BetterDoctor API to generate medical issue and doctor's name queries.
-- [ ] Verify API_KEY is working through postman.
+- [x] Read through BetterDoctor API to generate medical issue and doctor's name queries.
+- [x] Verify API_KEY is working through postman.
+- [ ] Generate html template page with two form options, medical condition and doctor's name.
 - [ ] Use main js file to combine two search classes, Issue and DoctorName.
 - [ ] Verify query results are working as planned in HTML.
 - [ ] Separate js business and user interface between main and doctor-lookup.

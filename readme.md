@@ -52,11 +52,11 @@
 
 3. Integration
 - [x] Read through BetterDoctor API to generate medical issue and doctor's name queries.
-- [x] Verify API_KEY is working through postman.
-- [ ] Generate html template page with two form options, medical condition and doctor's name.
-- [ ] Use main js file to combine two search classes, Issue and DoctorName.
-- [ ] Verify query results are working as planned in HTML.
-- [ ] Separate js business and user interface between main and doctor-lookup.
+- [x] Verify API_KEY and queries are working through postman.
+- [x] Generate html template page with two form options, medical condition and doctor's name.
+- [ ] Use main js file to combine two searches.
+- [ ] Verify query results are working and viewed in HTML.
+- [ ] Separate js business and user interface between main and doctor-lookup.  Create two classes showDoctorByCondition and showDoctorsByName.
 
 4. UX/UI
 - [ ] Include and modify bootstrap.

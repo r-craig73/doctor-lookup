@@ -8,7 +8,7 @@ const Dotenv = require('dotenv-webpack');
 module.exports = {
   entry: './src/main.js',
   output: {
-    filename: 'bundle.js',
+    filename: 'doctor-lookup.js',
     path: path.resolve(__dirname, 'dist')
   },
   devtool: 'eval-source-map',

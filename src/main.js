@@ -4,13 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import { **insert prototype name** } from './doctor-lookup.js';
 
 $(document).ready(function() {
-  $('.start-over').hide();
+  $('#start-over-button').hide();
   $('.showDoctorsByCondition').hide();
   $('.showDoctorsByName').hide();
 
-  $('.condition-button').click(function() {
+  $('#condition-button').click(function() {
     event.preventDefault();
-    $('.start-over').show();
+    $('#start-over-button').show();
     $('.doctor-name').hide();
     $('showDoctorsByCondition').empty();
     $('showDoctorsByCondition').show();
@@ -70,9 +70,9 @@ $(document).ready(function() {
       });
   });
 
-  $('.doctor-name-button').click(function() {
+  $('#doctor-name-button').click(function() {
     event.preventDefault();
-    $('.start-over').show();
+    $('#start-over-button').show();
     $('.condition').hide();
     $('showDoctorsByName').empty();
     $('showDoctorsByName').show();
@@ -132,7 +132,7 @@ $(document).ready(function() {
       });
   });
 
-  $('.start-over-button').click(function() {
+  $('#start-over-button').click(function() {
     event.preventDefault();
     location.reload();
   });

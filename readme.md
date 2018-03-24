@@ -14,7 +14,7 @@
 |--------|:-------:|---------|----------|
 | User inputs a medical issue and receive a list of doctors. | "rash" | "Susan Koch" | Ongoing |
 | User inputs a name (First, Middle or Last name) to receive a list of doctors. | "Lowe" | "Joe Lowe, MD" | Completed |
-| If results from Spec 1 or Spec 2 includes any doctors, the doctor's information should be included. | "rash" | "Susan Koch, MD", "123 Main Street", 360-867-5309, www.susank_skin_clinic.com, Accepting patients: Yes | Completed |
+| If results from Spec 1 or Spec 2 includes any doctors, the doctor's information should be included. | "rash" | "Susan Koch, MD", "123 Main Street", Vancouver, WA, 98684, 3608675309, Website: www.susank_skin_clinic.com, Accepting patients: Yes | Completed |
 | The app should return an error notification if the API call results in an error (any message not a 200 OK) | condition: "allergy" | "Ahhhh choo! An error occurred, please try again." | Completed |
 | If there are no doctors available after the query response, the app returns a message stating no doctors meet the criteria (not route error). | name: "Seuss" OR condition: "cowbell" | "There are no doctors matching your search." OR "There are no doctors available to help with your medical issue." | Completed |
 

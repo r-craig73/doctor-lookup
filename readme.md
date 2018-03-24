@@ -1,7 +1,7 @@
 # doctor-lookup
 
 #### by Ron Craig (ron.craig@comcast.net)
-##### 03/16/2018-03/17/2018
+##### 03/23/2018-03/xx/2018
 
 ### GitHub repository: https://github.com/r-craig73/doctor-lookup
 
@@ -12,7 +12,7 @@
 
 | Spec   | Input   | Output  | Status   |
 |--------|:-------:|---------|----------|
-| User inputs a medical issue and receive a list of doctors. | "rash" | "Susan Koch" | Ongoing |
+| User inputs a medical issue and receive a list of doctors. | "rash" | "Susan Koch" | Completed |
 | User inputs a name (First, Middle or Last name) to receive a list of doctors. | "Lowe" | "Joe Lowe, MD" | Completed |
 | If results from Spec 1 or Spec 2 includes any doctors, the doctor's information should be included. | "rash" | "Susan Koch, MD", "123 Main Street", Vancouver, WA, 98684, 3608675309, Website: www.susank_skin_clinic.com, Accepting patients: Yes | Completed |
 | The app should return an error notification if the API call results in an error (any message not a 200 OK) | condition: "allergy" | "Ahhhh choo! An error occurred, please try again." | Completed |

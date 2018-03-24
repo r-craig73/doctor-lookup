@@ -25,7 +25,7 @@ $(document).ready(function() {
         let street = response.data[0].practices[0].visit_address.street;
         console.log(street);
       }).fail(function(error) {
-        $('.showErrors').text(`There was an error processing your request: Please try again.`);
+        $('.showErrors').text(`Ahhhh chooo! There was an error processing your request: Please try again.`);
       });
   });
 
@@ -42,7 +42,7 @@ $(document).ready(function() {
         let acceptingPatients = response.data[0].practices[0].accepts_new_patients;
         console.log(acceptingPatients);
       }).fail(function(error) {
-        $('.showErrors').text(`There was an error processing your request: Please try again.`);
+        $('.showErrors').text(`Ahhhh chooo! There was an error processing your request: Please try again.`);
       });
   });
 

@@ -4,25 +4,59 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FindDoctorCondition } from './doctor-lookup.js';
 
 const displayDoctors = function(response) {
-  console.log(response.meta.total);
+  let acceptingPatients = [];
+  let firstName = [];
+  let middleName = [];
+  let lastName = [];
+  let title = [];
+  let street = [];
+  let city = [];
+  let state = [];
+  let zipCode = [];
+  let phoneNumber = [];
+  let urlSite = [];
   if (response.meta.total == 0) {
-    $('.showDoctorsByCondition').show();
-    $('.showDoctorsByCondition').text(`There are no doctors matching your search.`);
-    } else {
-    $('.showDoctorsByCondition').show();
-    $('.showDoctorsByCondition').append(`Here is a list of doctor(s) in the Portland, OR area matching your search:` + '<br>' + '<br>');
-    let acceptingPatients = [];
-    let firstName = [];
-    let middleName = [];
-    let lastName = [];
-    let title = [];
-    let street = [];
-    let city = [];
-    let state = [];
-    let zipCode = [];
-    let phoneNumber = [];
-    let urlSite = [];
-    for(let i = 0; i < response.meta.total ; i++) {
+    $('.showDoctors').show();
+    $('.showDoctors').text(`There are no doctors matching your search.`);
+  } else if (response.meta.total >= 90) {
+    response.meta.total = 90;
+    $('.showDoctors').show();
+    $('.showDoctors').append(`Here is a list of doctor(s) in the Portland, OR area matching your search:` + '<br>' + '<br>');
+    for(let i = 0; i < response.meta.total - 1; i++) {
+      acceptingPatients[i] = response.data[i].practices[0].accepts_new_patients;
+      firstName[i] = response.data[i].profile.first_name;
+      middleName[i] = response.data[i].profile.middle_name;
+      lastName[i] = response.data[i].profile.last_name;
+      title[i] = response.data[i].profile.title;
+      street[i] = response.data[i].practices[0].visit_address.street;
+      city[i] = response.data[i].practices[0].visit_address.city;
+      state[i] = response.data[i].practices[0].visit_address.state;
+      zipCode[i] = response.data[i].practices[0].visit_address.zip;
+      phoneNumber[i] = response.data[i].practices[0].phones[0].number;
+      urlSite[i] = response.data[i].practices[0].website;
+      if (typeof urlSite[i] == "undefined") {
+        urlSite[i] = "Not Available";
+      }
+      if (typeof middleName[i] == "undefined") {
+        urlSite[i] = "";
+      }
+      if (acceptingPatients[i] == true) {
+        acceptingPatients[i] = "Yes";
+      } else {
+        acceptingPatients[i] = "No";
+      }
+      if (typeof title[i] == "undefined") {
+        title[i] = " ";
+      } else {
+        title[i] = ", " + title[i];
+      }
+      $('.showDoctors').append(firstName[i] + " " + middleName[i] + " " + lastName[i] + title[i] + '<br>' + "  " + street[i] + '<br>' + city[i] + ", " + state[i] + " " + zipCode[i] + '<br>' + "Phone number: " + phoneNumber[i] + '<br>' + "Accepting patients? " + acceptingPatients[i] + '<br>' + "Website: " + urlSite[i] + '<br>' + '<br>');
+    }
+  } else {
+    console.log(`total search: ` + response.meta.total);
+    $('.showDoctors').show();
+    $('.showDoctors').append(`Here is a list of doctor(s) in the Portland, OR area matching your search:` + '<br>' + '<br>');
+    for(let i = 0; i < response.meta.total; i++) {
       acceptingPatients[i] = response.data[i].practices[0].accepts_new_patients;
       firstName[i] = response.data[i].profile.first_name;
       middleName[i] = response.data[i].profile.middle_name;
@@ -50,94 +84,45 @@ const displayDoctors = function(response) {
       } else {
         title[i] = ", " + title[i];
       }
-      $('.showDoctorsByCondition').append(firstName[i] + " " + middleName[i] + " " + lastName[i] + title[i] + '<br>' + "  " + street[i] + '<br>' + city[i] + ", " + state[i] + " " + zipCode[i] + '<br>' + "Phone number: " + phoneNumber[i] + '<br>' + "Accepting patients? " + acceptingPatients[i] + '<br>' + "Website: " + urlSite[i] + '<br>' + '<br>');
-    }
-    console.log(middleName);
+      $('.showDoctors').append(firstName[i] + " " + middleName[i] + " " + lastName[i] + title[i] + '<br>' + "  " + street[i] + '<br>' + city[i] + ", " + state[i] + " " + zipCode[i] + '<br>' + "Phone number: " + phoneNumber[i] + '<br>' + "Accepting patients? " + acceptingPatients[i] + '<br>' + "Website: " + urlSite[i] + '<br>' + '<br>');
+    } // close for loop
   }
 }
 
+
 $(document).ready(function() {
-  $('#start-over-button').hide();
-  $('.showDoctorsByCondition').hide();
-  $('.showDoctorsByName').hide();
+  $('#new-search-button').hide();
+  $('.showDoctors').hide();
 
   $('#condition-button').click(function() {
     event.preventDefault();
-    $('#start-over-button').show();
+    $('#new-search-button').show();
+    $('.condition').hide();
     $('.doctor-name').hide();
-    $('showDoctorsByCondition').empty();
-    $('showDoctorsByCondition').show();
+    $('showDoctors').empty();
+    $('showDoctors').show();
     let condition = $('#condition').val();
     let newConditionAPI = new FindDoctorCondition(condition);
     $('#condition').val("");
-    newConditionAPI.searchDoctors(condition, displayDoctors);
-
+    $('showDoctors').show();
+    newConditionAPI.searchByCondition(condition, displayDoctors);
   });
 
 
   $('#doctor-name-button').click(function() {
     event.preventDefault();
-    $('#start-over-button').show();
+    $('#new-search-button').show();
+    $('.doctor-name').hide();
     $('.condition').hide();
-    $('showDoctorsByName').empty();
-    $('showDoctorsByName').show();
+    $('showDoctors').empty();
+    $('showDoctors').show();
     let name = $('#doctor-name').val();
-    $.get(`https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&location=45.523%2C-122.676%2C20&sort=distance-asc&skip=0&limit=90&user_key=${process.env.exports.apiKey}`)
-      .then(function(response) {
-        let total = response.meta.total;
-        $('.showDoctorsByName').show();
-        $('.showDoctorsByName').append(`Here is a list of doctor(s) in the Portland, OR area matching your search:` + '<br>' + '<br>');
-        let acceptingPatients = [];
-        let firstName = [];
-        let middleName = [];
-        let lastName = [];
-        let title = [];
-        let street = [];
-        let city = [];
-        let state = [];
-        let zipCode = [];
-        let phoneNumber = [];
-        let urlSite = [];
-        if (total == 0) {
-          $('.showDoctorsByName').text(`There are no doctors matching your search.`);
-          } else {
-          for(let i = 0; i < response.meta.total ; i++) {
-            acceptingPatients[i] = response.data[i].practices[0].accepts_new_patients;
-            firstName[i] = response.data[i].profile.first_name;
-            middleName[i] = response.data[i].profile.middle_name;
-            lastName[i] = response.data[i].profile.last_name;
-            title[i] = response.data[i].profile.title;
-            street[i] = response.data[i].practices[0].visit_address.street;
-            city[i] = response.data[i].practices[0].visit_address.city;
-            state[i] = response.data[i].practices[0].visit_address.state;
-            zipCode[i] = response.data[i].practices[0].visit_address.zip;
-            phoneNumber[i] = response.data[i].practices[0].phones[0].number;
-            urlSite[i] = response.data[i].practices[0].website;
-            if (typeof urlSite[i] == "undefined") {
-              urlSite[i] = "Not Available";
-            }
-            if (typeof middleName[i] == "undefined") {
-              urlSite[i] = "";
-            }
-            if (acceptingPatients[i] == true) {
-              acceptingPatients[i] = "Yes";
-            } else {
-              acceptingPatients[i] = "No";
-            }
-            if (typeof title[i] == "undefined") {
-              title[i] = " ";
-            } else {
-              title[i] = ", " + title[i];
-            }
-            $('.showDoctorsByName').append(firstName[i] + " " + middleName[i] + " " + lastName[i] + title[i] + '<br>' + "  " + street[i] + '<br>' + city[i] + ", " + state[i] + " " + zipCode[i] + '<br>' + "Phone number: " + phoneNumber[i] + '<br>' + "Accepting patients? " + acceptingPatients[i] + '<br>' + "Website: " + urlSite[i] + '<br>' + '<br>');
-          }
-        }
-      }).fail(function(error) {
-        $('.showErrors').text(`Ahhhh chooo! There was an error processing your request: Please try again.`);
-      });
+    let newConditionAPI = new FindDoctorCondition(name);
+    $('#doctor-name').val("");
+    newConditionAPI.searchByName(name, displayDoctors);
   });
 
-  $('#start-over-button').click(function() {
+  $('#new-search-button').click(function() {
     event.preventDefault();
     location.reload();
   });

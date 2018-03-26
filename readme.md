@@ -94,11 +94,10 @@ $ npm run start
 - Fill out the form and list Epicodus as the Organization/Company Name.
 - The API key should be listed under My Account->Applications.
 
-## Known Bugs and Issues
-#### JS are split into business and logic files.  However, promises are not working.
-#### Wordy coding printing out results in main.js.
-#### Displaying API call errors (non 200 OK) with brackets.
-#### Long website urls does not wrap around light-gray container.
+### Known Bugs and Issues
+- JS files are split into business and logic.  However, promises are not working.
+- Wordy coding printing out results in main.js -> const displayDoctors function (lines 6 through 89).
+- Displaying brackets within "non 200 API call" errors.
 
 ### Licensed under MIT License
 

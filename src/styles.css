@@ -4,7 +4,8 @@ h1, h2 {
 
 .container {
   background: #f8f9fa;
-  padding-top: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .showDoctors {

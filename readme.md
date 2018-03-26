@@ -5,10 +5,12 @@
 
 ### GitHub repository: https://github.com/r-craig73/doctor-lookup
 
+<kbd><img src="src/img/DoctorLookupApp.png" alt=""></kbd>
+
 ## Description
 ### An app to list  doctors (up to 90 doctors) in Portland, OR (using BetterDoctor API), based on either a medical condition or doctor's name.
 
-## Business Specifications
+## Specifications
 
 | Spec   | Input   | Output  | Status   |
 |--------|:-------:|---------|----------|
@@ -28,7 +30,7 @@ Environment: npm, webpack, babel, esLint
 ```
 
 ## Installation setup
-1. Install webpack dependencies using Roger Yee's npm-webpacker script (https://github.com/ryee926/npm-webpacker)
+1. Install webpack dependencies using Roger Yee npm-webpacker script (https://github.com/ryee926/npm-webpacker)
 * npm plugins
 - [x] creates package.json
 - [x] installs most recent version of npm
@@ -75,26 +77,28 @@ Environment: npm, webpack, babel, esLint
 },
 ```
 
-2. Install npm packages and dependencies.
+3. Install npm packages and dependencies.
 ```
 $ npm install
 $ npm run build
 ```
 
-3. Start webserver to run app.
+4. Start webserver to run app.
 ```
 $ npm run start
 ```
 
-4. Get an API Key to run the app by...
+5. Get an API Key to run the app by...
 - Visiting the BetterDoctor API (https://developer.betterdoctor.com/) site.
 - Click "Get a free API key".
 - Fill out the form and list Epicodus as the Organization/Company Name.
 - The API key should be listed under My Account->Applications.
 
 ## Known Bugs and Issues
-### JS are split into business and logic files.  However, promises are not working.
-### Displaying API call errors (non 200 OK) with brackets.
+#### JS are split into business and logic files.  However, promises are not working.
+#### Wordy coding printing out results in main.js.
+#### Displaying API call errors (non 200 OK) with brackets.
+#### Long website urls does not wrap around light-gray container.
 
 ### Licensed under MIT License
 

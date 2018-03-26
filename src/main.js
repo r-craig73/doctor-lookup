@@ -53,7 +53,6 @@ const displayDoctors = function(response) {
       $('.showDoctors').append(firstName[i] + " " + middleName[i] + " " + lastName[i] + title[i] + '<br>' + "  " + street[i] + '<br>' + city[i] + ", " + state[i] + " " + zipCode[i] + '<br>' + "Phone number: " + phoneNumber[i] + '<br>' + "Accepting patients? " + acceptingPatients[i] + '<br>' + "Website: " + urlSite[i] + '<br>' + '<br>');
     }
   } else {
-    console.log(`total search: ` + response.meta.total);
     $('.showDoctors').show();
     $('.showDoctors').append(`Here is a list of doctor(s) in the Portland, OR area matching your search:` + '<br>' + '<br>');
     for(let i = 0; i < response.meta.total; i++) {

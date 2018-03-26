@@ -5,7 +5,7 @@
 
 ### GitHub repository: https://github.com/r-craig73/doctor-lookup
 
-<kbd><img src="src/img/DoctorLookupApp.png" alt=""></kbd>
+<kbd><img src="./src/img/DoctorLookupApp.png" alt="doctor-lookup homepage app"></kbd>
 
 ## Description
 ### An app to list  doctors (up to 90 doctors) in Portland, OR (using BetterDoctor API), based on either a medical condition or doctor's name.

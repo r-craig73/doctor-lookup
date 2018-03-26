@@ -89,7 +89,6 @@ const displayDoctors = function(response) {
   }
 }
 
-
 $(document).ready(function() {
   $('#new-search-button').hide();
   $('.showDoctors').hide();
@@ -97,28 +96,26 @@ $(document).ready(function() {
   $('#condition-button').click(function() {
     event.preventDefault();
     $('#new-search-button').show();
-    $('.condition').hide();
+    $('#condition').show();
+    $('#condition-button').hide();
     $('.doctor-name').hide();
     $('showDoctors').empty();
     $('showDoctors').show();
     let condition = $('#condition').val();
     let newConditionAPI = new FindDoctorCondition(condition);
-    $('#condition').val("");
-    $('showDoctors').show();
     newConditionAPI.searchByCondition(condition, displayDoctors);
   });
-
 
   $('#doctor-name-button').click(function() {
     event.preventDefault();
     $('#new-search-button').show();
-    $('.doctor-name').hide();
+    $('#doctor-name').show();
+    $('#doctor-name-button').hide();
     $('.condition').hide();
     $('showDoctors').empty();
     $('showDoctors').show();
     let name = $('#doctor-name').val();
     let newConditionAPI = new FindDoctorCondition(name);
-    $('#doctor-name').val("");
     newConditionAPI.searchByName(name, displayDoctors);
   });
 

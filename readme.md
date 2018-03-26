@@ -1,7 +1,7 @@
 # doctor-lookup
 
 #### by Ron Craig (ron.craig@comcast.net)
-##### 03/23/2018-03/xx/2018
+##### 03/23/2018-03/25/2018
 
 ### GitHub repository: https://github.com/r-craig73/doctor-lookup
 
@@ -17,6 +17,15 @@
 | If results from Spec 1 or Spec 2 includes any doctors, the doctor's information should be included. | "rash" | "Susan Koch, MD", "123 Main Street", Vancouver, WA, 98684, Phone number: 3608675309, Accepting patients: Yes, Website: www.susank_skin_clinic.com | Completed |
 | The app should return an error notification if the API call results in an error (any message not a 200 OK) | condition: "allergy" | "Ahhhh choo! An error processing your request: {undefined or API error} Please try again." | Completed |
 | If there are no doctors available after the query response, the app returns a message stating no doctors meet the criteria (not route error). | name: "Seuss" OR condition: "cowbell" | "There are no doctors matching your search." | Completed |
+
+## Technologies Used
+
+```
+API: BetterDoctor
+Application: JavaScript, jQuery, Bootstrap, HTML
+Testing: Jasmine, Karma
+Environment: npm, webpack, babel, esLint
+```
 
 ## Installation setup
 1. Install webpack dependencies using Roger Yee's npm-webpacker script (https://github.com/ryee926/npm-webpacker)
@@ -83,17 +92,8 @@ $ npm run start
 - Fill out the form and list Epicodus as the Organization/Company Name.
 - The API key should be listed under My Account->Applications.
 
-## Technologies Used
-
-```
-Application: JavaScript, jQuery, Bootstrap, HTML
-Testing: Jasmine, Karma
-Environment: npm, webpack, babel, esLint
-```
-
 ## Known Bugs and Issues
-### Still need to complete Planning section below.
-### js files are split into business and logic ui.  However, promises are not working as planned.
+### JS are split into business and logic files.  However, promises are not working.
 ### Displaying API call errors (non 200 OK) with brackets.
 
 ### Licensed under MIT License
